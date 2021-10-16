@@ -1,0 +1,10 @@
+// se coloca un objeto jason
+{   "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "rules": {},
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    }
+}
