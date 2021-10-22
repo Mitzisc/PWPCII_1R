@@ -23,11 +23,15 @@ import indexRouter from '@s-routes/index';
 
 import usersRouter from '@s-routes/users';
 
+//Importing configuration
+import configTemplateEngine from '@s-config/template-engine';
+
 // eslint-disable-next-line spaced-comment
 //importar modulos de webpack
 import webpack from 'webpack';
 import WebpackDevMiddleware from 'webpack-dev-middleware';
 import WebpackHotMiddleware from 'webpack-hot-middleware';
+import { config } from 'process';
 import WebpackConfig from '../webpack.dev.config';
 import webpackDevConfig from '../webpack.dev.config';
 
@@ -58,9 +62,8 @@ if (env === 'development') {
   app.use(
     WebpackDevMiddleware(compiler, {
       publicPath: webpackDevConfig.output.publicPath,
-    }),
+    })
   );
-// webpack hot middleware
   app.use(WebpackHotMiddleware(compiler));
   // eslint-disable-next-line keyword-spacing
 } else {
@@ -68,21 +71,21 @@ if (env === 'development') {
 }
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+
+configTemplateEngine(app);
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, "..", 'public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 // eslint-disable-next-line prefer-arrow-callback
-app.use( (req, res, next) => {
+app.use((req, res, next) => {
   next(createError(404));
 });
 
@@ -91,7 +94,7 @@ app.use( (req, res, next) => {
 // eslint-disable-next-line no-unused-vars
 // eslint-disable-next-line func-names
 // eslint-disable-next-line prefer-arrow-callback
-app.use( (err, req, res) => {
+app.use((err, req, res) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
