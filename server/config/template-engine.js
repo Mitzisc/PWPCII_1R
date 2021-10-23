@@ -10,9 +10,9 @@ import path from 'path';
 export default (app) => {
     // 1.Registrar el motor de plantillas.
     // eslint-disable-next-line no-undef
-    app.engine('hbs', ExpHbs({
+    app.engine('hbs', exphbs({
         extname: '.hbs',
-        defaultLayout: 'main', 
+        default: 'main', 
 
     } )
 );
