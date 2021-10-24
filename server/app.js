@@ -17,11 +17,13 @@ import path from 'path';
 
 import cookieParser from 'cookie-parser';
 
-import logger from 'morgan';
+import morgan from 'morgan';
 
 import indexRouter from '@s-routes/index';
 
 import usersRouter from '@s-routes/users';
+
+import winston from '@server/config/winston';
 
 //Importing configuration
 import configTemplateEngine from '@s-config/template-engine';
@@ -74,7 +76,7 @@ if (env === 'development') {
 
 configTemplateEngine(app);
 
-app.use(logger('dev'));
+app.use(morgan('combined', { stream: winston.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
