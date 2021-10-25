@@ -1,23 +1,17 @@
-var express = require('express');
-var router = express.Router();
+// eslint-disable-next-line prettier/prettier
+import {Router} from 'express';
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express', author:'Mitzi Sanchez',appName:'web', company:'Ansome Software' });
+import home from './home';
 
+const router = new Router();
 
+// Get home  page.
+
+router.get('/', home);
+
+// eslint-disable-next-line prefer-arrow-callback
+router.get('/greeting', function (req, res, next) {
+  res.status(200).json({ message: 'hola campeon de  la fullstack web' });
 });
 
-/*Agregando una nueva ruta*/ 
-router.get('/greeting',function(req, res, next){
-res.status(200).json({message: 'prueba dos'})
-});
-
-
-/*Reto*/
-
-router.get('/new',function(req, res, next){
-  res.status(200).json({message: 'Reto cumplido'})
-});
 module.exports = router;
- 

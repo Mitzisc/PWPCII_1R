@@ -3,4 +3,7 @@ node_modules
 dist-server
 
 #ignorando los archivos de logs es todo aquello que diga logs
+*.logs
 logs
+erros
+warns
