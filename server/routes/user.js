@@ -1,12 +1,11 @@
 /* eslint-disable prettier/prettier */
-/* eslint-disable import/no-unresolved */
-// Importar Router
+// Importando router
 import { Router } from 'express';
 
-// Importar controlador 
+// Importando el controlador
 import userController from '@server/controllers/userController';
 
-// Crear instancia router
+// Creando  la instanca  del router
 const router = new Router();
 
 /* GET users listing. */

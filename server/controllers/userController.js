@@ -1,9 +1,7 @@
-/* eslint-disable prettier/prettier */
-const index = (req, res) => {
-    // eslint-disable-next-line prettier/prettier
-    res.send('indexado de usuarios. under construccion');
-  };
-  
-  export default {
-    index,
-  };
+const index = (req,res) =>{
+  res.send('Indexado de Usuarios.. Under Contruction. ');
+};
+
+export default {
+  index,
+};
