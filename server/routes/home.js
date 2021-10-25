@@ -20,6 +20,9 @@ router.get('/', homeController.index);
 
 //Exportando el router que maneja que maneja las sub
 //de home
+// Get gretting
+
+router.get('/greeting', homeController.greeting);
 
 export default router;
  

@@ -1,17 +1,17 @@
-// eslint-disable-next-line prettier/prettier
-import {Router} from 'express';
+/* eslint-disable import/extensions */
+// Importando el router home
+import homeRouter from './home';
+// Importando router user
+// eslint-disable-next-line import/no-unresolved
+import userRouter from './user';
 
-import home from './home';
+// Agregando Rutas a app
+const addRoutes = (app) => {
+  app.use('/', homeRouter);
+  app.use('/user', userRouter);
+  return app;
+};
 
-const router = new Router();
-
-// Get home  page.
-
-router.get('/', home);
-
-// eslint-disable-next-line prefer-arrow-callback
-router.get('/greeting', function (req, res, next) {
-  res.status(200).json({ message: 'hola campeon de  la fullstack web' });
-});
-
-module.exports = router;
+export default {
+  addRoutes,
+};
