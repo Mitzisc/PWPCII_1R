@@ -12,7 +12,7 @@ const greeting = (req, res)=>{
 };
 
 const about = (req, res)=>{
-  res.render('home/about', {title: "Acercaa de prodjnotes"});
+  res.render('home/about', {appVersion: "0.0.1"});
 };
 
 
