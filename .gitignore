@@ -7,3 +7,5 @@ dist-server
 logs
 erros
 warns
+#ignorando archivo de configuración 
+.env
