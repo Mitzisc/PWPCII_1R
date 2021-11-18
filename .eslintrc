@@ -1,16 +1,17 @@
-// se coloca un objeto jason
-{   "parser": "babel-eslint",
-    "extends": ["airbnb-base","prettier"],
+// se coloca un objeto jas
+{
+    "parser": "babel-eslint",
+    "extends": ["airbnb-base", "prettier"],
     "plugins": ["prettier"],
     "rules": {
         "prettier/prettier": ["error"]
     },
-    "env": {
+    "env":{
         "browser": true,
         "es6": true,
         "node": true
     },
     "settings": {
-        "import/resolver" : {"babel-module:" {}}
+        "import/resolver": { "babel-module": {}}
     }
 }
